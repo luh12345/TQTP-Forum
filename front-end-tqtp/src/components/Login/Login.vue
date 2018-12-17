@@ -51,11 +51,13 @@ export default {
 .center {
   margin: 0 auto;
 }
+
 .small{
   width: 500px;
   height: 500px;
   padding: 50px;
 }
+
 .login-background {
   background-image: url("../../assets/login-background.jpg");
   background-size: cover; /* <------ */
