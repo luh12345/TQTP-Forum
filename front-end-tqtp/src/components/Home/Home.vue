@@ -5,12 +5,8 @@
 </template>
 
 <script>
-import SessionHelper from '../../helper/SessionHelper.js'
-
 export default {
-   created(){
-     SessionHelper.checkAuth();
-   }
+
 }
 </script>
 
