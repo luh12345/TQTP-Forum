@@ -1,5 +1,6 @@
 import Login from '../components/Login/Login.vue'
 import Home from '../components/Home/Home.vue'
+import CadastroUser from '../components/User/Cadastro.vue'
 import VueRouter from 'vue-router'
 
 //Create vue router
@@ -18,7 +19,15 @@ const router =  new VueRouter({
             name: 'login',
             component: Login,
             meta:{
-                loginPage: true
+                guest: true
+            }
+        },
+        {
+            path: '/cadastro-user',
+            name: 'cadastro-user',
+            component: CadastroUser,
+            meta:{
+                guest: true
             }
         }
     ],
@@ -36,7 +45,7 @@ router.beforeEach((to, from , next) => {
             next()
         }
     }
-    else if(to.matched.some(route => route.meta.loginPage)){
+    else if(to.matched.some(route => route.meta.guest)){
         let authToken = localStorage.getItem('auth-token')
         if(authToken){
             next('/')

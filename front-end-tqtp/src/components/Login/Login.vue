@@ -2,7 +2,7 @@
   <div>
     <div class="nes-container is-rounded fullscreen login-background">
       <center>
-        <form @submit.prevent="doLogin()" class="nes-container with-title is-rounded center small">
+        <form @submit.prevent="doLogin()" class="nes-container with-title is-rounded center small-form">
           <h2>Login</h2>
           <input type="text" class="nes-input" v-model="username" v-bind:class="{'is-error' : error}" placeholder="Digite seu username">
           <br/>
@@ -12,9 +12,9 @@
           <br/>
           <button class="nes-btn is-primary" type="submit">Login</button>
           <br/>
-          <button class="nes-btn" type="submit">Cadastrar</button>
+          <router-link to="cadastro-user" class="nes-btn">Cadastrar</router-link>
           <br/>
-          <button class="nes-btn" type="submit">Esqueci minha senha</button>
+          <router-link to ="esqueci-minha-senha" class="nes-btn">Esqueci minha senha</router-link>
           <br/>
         </form>
       </center>
@@ -45,28 +45,5 @@ export default {
 </script>
 
 <style scoped>
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
 
-.center {
-  margin: 0 auto;
-}
-
-.small{
-  width: 500px;
-  height: 500px;
-  padding: 50px;
-}
-
-.login-background {
-  background-image: url("../../assets/login-background.jpg");
-  background-size: cover; /* <------ */
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 </style>
