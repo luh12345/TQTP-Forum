@@ -1,16 +1,21 @@
 <template>
   <div>
-    <div class="container is-rounded fullscreen login-background">
+    <div class="nes-container is-rounded fullscreen login-background">
       <center>
-        <form @submit.prevent="doLogin()" class="container with-title is-rounded center small">
+        <form @submit.prevent="doLogin()" class="nes-container with-title is-rounded center small">
           <h2>Login</h2>
-          <input type="text" class="input" v-model="username" v-bind:class="{'is-error' : error}" placeholder="Digite seu username">
+          <input type="text" class="nes-input" v-model="username" v-bind:class="{'is-error' : error}" placeholder="Digite seu username">
           <br/>
-          <input type="password" class="input" v-model="password" v-bind:class="{'is-error' : error}" placeholder="Digite seu password">
           <br/>
-          <button class="btn is-success" type="submit">Login</button>
-          <button class="btn" type="submit">Cadastrar</button>
-          <button class="btn" type="submit">Esqueci minha senha</button>
+          <input type="password" class="nes-input" v-model="password" v-bind:class="{'is-error' : error}" placeholder="Digite seu password">
+          <br/>
+          <br/>
+          <button class="nes-btn is-primary" type="submit">Login</button>
+          <br/>
+          <button class="nes-btn" type="submit">Cadastrar</button>
+          <br/>
+          <button class="nes-btn" type="submit">Esqueci minha senha</button>
+          <br/>
         </form>
       </center>
     </div>
@@ -21,9 +26,9 @@
 export default {
   data() {
     return {
-      username: "",
-      password: "",
-      error: ""
+      username: '',
+      password: '',
+      error: ''
     };
   },
   methods: {
