@@ -6,6 +6,7 @@ import { router } from '../src/routes/router'
 //CSS
 import '../node_modules/nes.css/css/nes.css'
 import '../src/styles/main.css'
+import '../src/styles/nprogress.css'
 
 Vue.use(VueRouter)
 

@@ -2,6 +2,7 @@ import Login from '../components/Login/Login.vue'
 import Home from '../components/Home/Home.vue'
 import CadastroUser from '../components/User/Cadastro.vue'
 import VueRouter from 'vue-router'
+import NProgress from 'nprogress/nprogress'
 
 //Create vue router
 const router =  new VueRouter({
@@ -36,6 +37,8 @@ const router =  new VueRouter({
 
 //Auth Configuration
 router.beforeEach((to, from , next) => {
+    NProgress.start();
+
     if(to.matched.some(route => route.meta.requireAuth)){
         let authToken = localStorage.getItem('auth-token')
         if(!authToken){
@@ -57,6 +60,11 @@ router.beforeEach((to, from , next) => {
     else{
         next()
     }
+})
+
+router.afterEach(() =>
+{
+    NProgress.done();
 })
 
 export {router};
