@@ -80,3 +80,7 @@ C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.A
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\obj\Debug\Insolation.Forum.Api.csproj.CopyComplete
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\obj\Debug\Insolation.Forum.Api.dll
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\obj\Debug\Insolation.Forum.Api.pdb
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\obj\Debug\Insolation.Forum.Api.csprojResolveAssemblyReference.cache
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Cors.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Http.Cors.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Http.Cors.xml

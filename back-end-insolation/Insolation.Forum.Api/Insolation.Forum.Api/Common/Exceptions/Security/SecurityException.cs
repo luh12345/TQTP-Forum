@@ -7,7 +7,7 @@ namespace Insolation.Forum.Api.Common.Exceptions.Security
 {
     public class SecurityException : Exception
     {
-        public SecurityException() : base("Invalid credentials.")
+        public SecurityException() : base("Credenciais inválidas.")
         {
 
         }

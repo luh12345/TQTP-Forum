@@ -7,10 +7,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Insolation.Forum.Api.Controllers
 {
     [RoutePrefix("api/auth")]
+    [EnableCors("*", "*", "*")]
     public class AuthController : ApiController
     {
         private readonly IJwtTokenService jwtService;
