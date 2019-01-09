@@ -1,38 +1,31 @@
 <template>
-  <div>
-    <div class="nes-container is-rounded fullscreen login-background">
-      <center>
-        <form
-          @submit.prevent="doLogin()"
-          class="nes-container with-title is-rounded center small-form"
-        >
-          <h2>Login</h2>
-          <input
-            type="text"
-            class="nes-input"
-            v-model="username"
-            v-bind:class="{'is-error' : error}"
-            placeholder="Digite seu username"
-          >
-          <br>
-          <br>
-          <input
-            type="password"
-            class="nes-input"
-            v-model="password"
-            v-bind:class="{'is-error' : error}"
-            placeholder="Digite seu password"
-          >
-          <br>
-          <br>
-          <button class="nes-btn is-primary" type="submit">Login</button>
-          <br>
-          <router-link to="cadastro-user" class="nes-btn">Cadastrar</router-link>
-          <br>
-          <router-link to="esqueci-minha-senha" class="nes-btn">Esqueci minha senha</router-link>
-          <br>
-        </form>
-      </center>
+  <div class="row pag">
+    <div id="body_box" class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+      <section id="box_login" class=" nes-container with-title">
+          <h1 class="title_box fs_15">Login</h1>
+          <form id="form" @submit.prevent="doLogin()">
+              <div class="bloco">
+                  <input type="text" id="name" class="nes-input fs_12" placeholder="Username" v-model="username" v-bind:class="{'is-error' : error}">
+              </div>
+              <div class="bloco bloco_margin_metade">
+                  <input type="password" id="password" class="nes-input fs_12" placeholder="Password" v-model="password" v-bind:class="{'is-error' : error}">
+                  <img class="show_password" src="../../assets/eyes.png" alt="mostrar senha" v-on:mousedown="mostrar('password')" v-on:mouseup="n_mostrar('password')">
+              </div>
+              <div class="bloco bloco_sem_margin">
+                  <label class="fs_8">
+                      <input type="checkbox" class="nes-checkbox">
+                      <span>Manter-me conectado</span>
+                  </label>
+              </div>
+              <div class="bloco">
+                  <button type="submit" class="nes-btn is-primary fs_12">Confirmar</button>
+              </div>
+              <div class="bloco height_5">
+                <router-link to="cadastro-user" class="underline left fs_8">Não tenho conta</router-link>
+                <router-link to="password" class="underline right fs_8">Esqueci minha senha</router-link>
+              </div>
+          </form>
+      </section>
     </div>
   </div>
 </template>
@@ -60,7 +53,7 @@ export default {
         return;
       }
 
-      loginService.login(this.username, this.password)
+    loginService.login(this.username, this.password)
       .then((res) => {
         let jwt = res.data;
         localStorage.setItem("auth-token", jwt);
@@ -73,6 +66,16 @@ export default {
           alert("Sistema fora do ar, por favor tente novamente mais tarde");
         }
       });
+    },
+
+    mostrar: function (id) {
+      var senha = document.getElementById(id);
+      senha.type = "text";
+    },
+
+    n_mostrar: function (id){
+      var senha = document.getElementById(id);
+      senha.type = "password";
     }
   }
 };

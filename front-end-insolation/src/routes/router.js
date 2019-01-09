@@ -1,6 +1,7 @@
 import Login from '../components/Login/Login.vue'
 import Home from '../components/Home/Home.vue'
 import CadastroUser from '../components/User/Cadastro.vue'
+import Password from '../components/Password/RecuperarSenha.vue'
 import VueRouter from 'vue-router'
 import NProgress from 'nprogress/nprogress'
 
@@ -27,6 +28,14 @@ const router =  new VueRouter({
             path: '/cadastro-user',
             name: 'cadastro-user',
             component: CadastroUser,
+            meta:{
+                guest: true
+            }
+        },
+        {
+            path: '/password',
+            name: 'password',
+            component: Password,
             meta:{
                 guest: true
             }
