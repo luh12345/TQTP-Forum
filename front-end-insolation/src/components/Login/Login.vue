@@ -63,7 +63,7 @@ export default {
         if (error.response !== undefined) {
           alert(error.response.data);
         } else {
-          alert("Sistema fora do ar, por favor tente novamente mais tarde");
+          alert("Sistema fora do ar, por favor tente novamente mais tarde.");
         }
       });
     },
