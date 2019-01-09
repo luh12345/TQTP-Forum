@@ -31,23 +31,41 @@
 </template>
 
 <script>
+//references
+import LoginService from "../../services/Login/LoginService.js";
+
+//obj references
+let loginService = new LoginService();
+
 export default {
   data() {
     return {
-      username: '',
-      password: '',
-      error: ''
+      username: "",
+      password: "",
+      error: ""
     };
   },
   methods: {
     doLogin() {
+      //validate fields
       if (!this.username || !this.password) {
         this.error = "Preencha os campos corretamente.";
         return;
       }
 
-      alert(`Logando o usuario ${this.username}}`);
-
+    loginService.login(this.username, this.password)
+      .then((res) => {
+        let jwt = res.data;
+        localStorage.setItem("auth-token", jwt);
+        this.$router.push("home");
+      })
+      .catch(function(error) {
+        if (error.response !== undefined) {
+          alert(error.response.data);
+        } else {
+          alert("Sistema fora do ar, por favor tente novamente mais tarde");
+        }
+      });
     },
 
     mostrar: function (id) {
@@ -64,5 +82,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
