@@ -7,6 +7,7 @@ import { router } from '../src/routes/router'
 import '../node_modules/nes.css/css/nes.css'
 import '../src/styles/main.css'
 import '../src/styles/nprogress.css'
+import '../src/styles/grid.min.css'
 
 Vue.use(VueRouter)
 

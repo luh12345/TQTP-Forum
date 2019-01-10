@@ -20,7 +20,7 @@
                 </div>
                 <div class="bloco bloco_sem_margin">
                     <label class="fs_8" id="UserTerm" v-on:click="userterm()">
-                        <input type="checkbox" class="nes-checkbox">
+                        <input type="checkbox" class="nes-checkbox" id="input_userterm">
                         <span>Termo de Uso</span>
                     </label>
                 </div>
@@ -69,12 +69,14 @@ export default {
         },
 
         userterm: function (){
-            if($('#UserTerm input').prop('checked') == true){
-                $(".btn_confirm").removeClass("is-disabled");
-                $(".btn_confirm").addClass("is-primary");
+            var userterm = document.getElementById("input_userterm");
+            var btn = document.getElementsByClassName("btn_confirm");
+            if(userterm.checked == true){
+                btn[0].classList.remove("is-disabled");
+                btn[0].classList.add("is-primary");
             } else{
-                $(".btn_confirm").removeClass("is-primary");
-                $(".btn_confirm").addClass("is-disabled");
+                btn[0].classList.remove("is-primary");
+                btn[0].classList.add("is-disabled");
             }
         }
     }
