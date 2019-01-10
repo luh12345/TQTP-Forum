@@ -20,8 +20,8 @@
                 </div>
                 <div class="bloco bloco_sem_margin">
                     <label class="fs_8" id="UserTerm" v-on:click="userterm()">
-                        <input type="checkbox" class="nes-checkbox">
-                        <span>Concordo com os termos de uso deste forum.</span>
+                        <input type="checkbox" class="nes-checkbox" id="input_userterm">
+                        <span>Termo de Uso</span>
                     </label>
                 </div>
                 <div class="bloco">
@@ -67,6 +67,18 @@ export default {
             var senha = document.getElementById(id);
             senha.type = "password";
         },
+
+        userterm: function (){
+            var userterm = document.getElementById("input_userterm");
+            var btn = document.getElementsByClassName("btn_confirm");
+            if(userterm.checked == true){
+                btn[0].classList.remove("is-disabled");
+                btn[0].classList.add("is-primary");
+            } else{
+                btn[0].classList.remove("is-primary");
+                btn[0].classList.add("is-disabled");
+            }
+        }
     }
 };
 </script>
