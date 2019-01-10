@@ -57,7 +57,7 @@ export default {
       .then((res) => {
         let jwt = res.data;
         localStorage.setItem("auth-token", jwt);
-        this.$router.push("home");
+        this.$router.push("/");
       })
       .catch(function(error) {
         if (error.response !== undefined) {

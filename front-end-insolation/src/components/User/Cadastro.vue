@@ -11,17 +11,17 @@
                     <input type="email" id="mail" class="nes-input fs_12" placeholder="E-mail" v-model="user.email" v-bind:class="{'is-error' : error}">
                 </div>
                 <div class="bloco">
-                    <input type="password" id="password" class="nes-input fs_12" placeholder="Password">
-                    <img class="show_password" src="../../assets/eyes.png" alt="mostrar senha" v-on:mousedown="mostrar('password')" v-on:mouseup="n_mostrar('password')" v-model="user.password" v-bind:class="{'is-error' : error}">
+                    <input type="password" id="password" v-model="user.password" class="nes-input fs_12" placeholder="Password" v-bind:class="{'is-error' : error}">
+                    <img class="show_password" src="../../assets/eyes.png" alt="mostrar senha" v-on:mousedown="mostrar('password')" v-on:mouseup="n_mostrar('password')" />
                 </div>
                 <div class="bloco bloco_margin_metade">
-                    <input type="password" id="password_confirm" class="nes-input fs_12" placeholder="Confirm password">
-                    <img class="show_password" src="../../assets/eyes.png" alt="mostrar senha" v-on:mousedown="mostrar('password_confirm')" v-on:mouseup="n_mostrar('password_confirm')" v-model="confirmarSenha" v-bind:class="{'is-error' : error}">
+                    <input type="password" id="password_confirm" v-model="confirmarSenha" class="nes-input fs_12" placeholder="Confirmar password" v-bind:class="{'is-error' : error}" >
+                    <img class="show_password" src="../../assets/eyes.png" alt="mostrar senha" v-on:mousedown="mostrar('password_confirm')" v-on:mouseup="n_mostrar('password_confirm')" />
                 </div>
                 <div class="bloco bloco_sem_margin">
                     <label class="fs_8" id="UserTerm" v-on:click="userterm()">
                         <input type="checkbox" class="nes-checkbox">
-                        <span>Termo de Uso</span>
+                        <span>Concordo com os termos de uso deste forum.</span>
                     </label>
                 </div>
                 <div class="bloco">
@@ -67,19 +67,9 @@ export default {
             var senha = document.getElementById(id);
             senha.type = "password";
         },
-
-        userterm: function (){
-            if($('#UserTerm input').prop('checked') == true){
-                $(".btn_confirm").removeClass("is-disabled");
-                $(".btn_confirm").addClass("is-primary");
-            } else{
-                $(".btn_confirm").removeClass("is-primary");
-                $(".btn_confirm").addClass("is-disabled");
-            }
-        }
     }
 };
 </script>
 
-<style>
+<style scoped>
 </style>

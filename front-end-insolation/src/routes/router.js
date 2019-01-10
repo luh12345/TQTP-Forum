@@ -4,6 +4,7 @@ import CadastroUser from '../components/User/Cadastro.vue'
 import Password from '../components/Password/RecuperarSenha.vue'
 import VueRouter from 'vue-router'
 import NProgress from 'nprogress/nprogress'
+import JwtHelper from '../helper/JwtHelper'
 
 //Create vue router
 const router =  new VueRouter({
@@ -50,7 +51,8 @@ router.beforeEach((to, from , next) => {
 
     if(to.matched.some(route => route.meta.requireAuth)){
         let authToken = localStorage.getItem('auth-token')
-        if(!authToken){
+        if(!authToken || !JwtHelper.validateJwt(authToken)){
+            localStorage.removeItem('auth-token');
             next("/login")
         }
         else{
@@ -59,7 +61,7 @@ router.beforeEach((to, from , next) => {
     }
     else if(to.matched.some(route => route.meta.guest)){
         let authToken = localStorage.getItem('auth-token')
-        if(authToken){
+        if(authToken && JwtHelper.validateJwt(authToken)){
             next('/')
         }
         else{
