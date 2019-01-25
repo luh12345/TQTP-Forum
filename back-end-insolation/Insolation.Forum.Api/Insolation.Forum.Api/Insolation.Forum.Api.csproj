@@ -132,6 +132,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\Const\DomainConst.cs" />
     <Compile Include="Common\Exceptions\Security\SecurityException.cs" />
+    <Compile Include="Common\Helper\Cypher.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />

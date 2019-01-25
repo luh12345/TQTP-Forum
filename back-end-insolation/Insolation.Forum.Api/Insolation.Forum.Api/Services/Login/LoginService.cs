@@ -1,4 +1,5 @@
 ﻿using Insolation.Forum.Api.Common.Exceptions.Security;
+using Insolation.Forum.Api.Common.Helper;
 using Insolation.Forum.Api.Entities.User;
 using Insolation.Forum.Api.Repository.Context;
 using MongoDB.Driver;
@@ -47,6 +48,7 @@ namespace Insolation.Forum.Api.Services.Login
             if (users.Any())
                 throw new Exception("Username ou e-mail já cadastrados.");
 
+            user.Password = Cypher.Encrypt(user.Password);
             await usersCollection.InsertOneAsync(user);
             return user;
         }
