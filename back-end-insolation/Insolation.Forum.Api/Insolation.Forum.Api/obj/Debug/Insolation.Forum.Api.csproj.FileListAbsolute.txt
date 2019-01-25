@@ -84,3 +84,13 @@ C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.A
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Cors.dll
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Http.Cors.dll
 C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Web.Http.Cors.xml
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\DnsClient.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Bson.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Driver.Core.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Driver.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Buffers.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\DnsClient.xml
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Bson.xml
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Driver.xml
+C:\Users\luciano.diniz\Desktop\tqtp-forum\back-end-insolation\Insolation.Forum.Api\Insolation.Forum.Api\bin\MongoDB.Driver.Core.xml

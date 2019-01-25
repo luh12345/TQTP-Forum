@@ -1,29 +1,54 @@
 ﻿using Insolation.Forum.Api.Common.Exceptions.Security;
+using Insolation.Forum.Api.Entities.User;
+using Insolation.Forum.Api.Repository.Context;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Insolation.Forum.Api.Services.Login
 {
     public class LoginService : ILoginService
     {
-        public IEnumerable<string> Login(string username, string password)
+        private readonly IInsolationContext context;
+
+        public LoginService(IInsolationContext context)
         {
-            IList<string> roles = new List<string>();
+            this.context = context;
+        }
 
-            if (username.Equals("admin") && password.Equals("admin"))
-            {
-                roles.Add("admin");
-            }
-            else if (username.Equals("luh12345") && password.Equals("Rasengan.1998"))
-            {
-                roles.Add("guest");
-            }
-            else
-                throw new SecurityException();
+        public async Task<IEnumerable<string>> Login(string username, string password)
+        {
+            IMongoCollection<User> usersCollection = context.Database.GetCollection<User>("Users");
+            FindOptions<User, User> findOptions = new FindOptions<User, User>();
+            findOptions.Limit = 1;
+            findOptions.MaxAwaitTime = TimeSpan.FromSeconds(20);
+            IAsyncCursor<User> cursorUsers = await usersCollection.FindAsync(x => x.Username == username && x.Password == password);
 
-            return roles;
+            using (cursorUsers)
+            {
+                List<User> usersResult = await cursorUsers.ToListAsync();
+                if (!usersResult.Any())
+                    throw new SecurityException("Usuário ou senha inválidos.");
+
+                User user = usersResult.FirstOrDefault();
+                return user.Roles.Select(x => x.Descricao);
+            }
+        }
+
+        public async Task<User> SignUp(User user)
+        {
+            IMongoCollection<User> usersCollection = context.Database.GetCollection<User>("Users");
+            IAsyncCursor<User> foundUsers = await usersCollection.FindAsync(x => x.Username == user.Username || x.Email == user.Email);
+
+            IEnumerable<User> users = await foundUsers.ToListAsync();
+            if (users.Any())
+                throw new Exception("Username ou e-mail já cadastrados.");
+
+            await usersCollection.InsertOneAsync(user);
+            return user;
         }
     }
 }

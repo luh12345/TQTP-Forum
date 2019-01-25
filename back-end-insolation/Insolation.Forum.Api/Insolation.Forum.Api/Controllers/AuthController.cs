@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -13,7 +14,7 @@ namespace Insolation.Forum.Api.Controllers
 {
     [RoutePrefix("api/auth")]
     [EnableCors("*", "*", "*")]
-    public class AuthController : ApiController
+    public class AuthController : BaseController
     {
         private readonly IJwtTokenService jwtService;
         private readonly ILoginService loginService;
@@ -29,16 +30,15 @@ namespace Insolation.Forum.Api.Controllers
         /// </summary>
         /// <param name="model">User credentials</param>
         /// <returns>Auth token</returns>
-        public HttpResponseMessage Post([FromBody] AuthModel model)
+        public async Task<HttpResponseMessage> Post([FromBody] AuthModel model)
         {
 
-            IEnumerable<string> roles = loginService.Login(model.Username, model.Password);
-            KeyValuePair<string, IEnumerable<string>> jwtAudience = Request.Headers.FirstOrDefault(x => x.Key == "JwtAudience");
-
-            if (jwtAudience.Value == null)
+            IEnumerable<string> roles = await loginService.Login(model.Username, model.Password);
+            IEnumerable<string> jwtAudiance = GetAudience();
+            if (jwtAudiance == null || !jwtAudiance.Any())
                 return Request.CreateResponse(HttpStatusCode.Unauthorized, "Invalid or null audiance.");
 
-            string jwtToken = jwtService.CreateToken(model.Username, jwtAudience.Value.First(), roles);
+            string jwtToken = jwtService.CreateToken(model.Username, jwtAudiance.First(), roles);
             return Request.CreateResponse(HttpStatusCode.OK, jwtToken);
         }
     }
